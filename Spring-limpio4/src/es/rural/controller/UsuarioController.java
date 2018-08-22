@@ -32,7 +32,7 @@ public class UsuarioController {
 		model.addObject("resultado", resultado);
 		model.addObject("usuarios", usuarios);
 
-		model.setViewName("usuario");
+		model.setViewName("usuarioTiles");
 		return model;
 	}
 
@@ -41,7 +41,7 @@ public class UsuarioController {
 			BindingResult bindingResult, ModelAndView model, RedirectAttributes ra) throws Exception {
 
 		if(bindingResult.hasErrors()) {
-			model.setViewName("usuario");
+			model.setViewName("usuarioTiles");
 			return model;
 		}
 
@@ -53,7 +53,7 @@ public class UsuarioController {
 			model.addObject("usuario", usuarioForm);
 			ra.addFlashAttribute("resultado", "Error al intentar guardar");
 
-			model.setViewName("usuario");
+			model.setViewName("usuarioTiles");
 			return model;
 		}
 	}
@@ -64,7 +64,7 @@ public class UsuarioController {
 		Usuario usuario = usuarioService.findById(id);
 		model.addObject("usuario", usuario);
 
-		model.setViewName("usuario");
+		model.setViewName("usuarioTiles");
 		return model;
 	}
 

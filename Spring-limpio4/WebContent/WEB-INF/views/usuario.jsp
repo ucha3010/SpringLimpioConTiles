@@ -21,7 +21,6 @@
 </script>
 </head>
 <body>
-	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 
 	<h1>usuario.jsp</h1>
 	<a href='<c:url value="/"/>'>Index</a><br/>

@@ -40,7 +40,7 @@ public class DireccionController {
 		List<Direccion> direcciones = direccionService.findByAdmin(admin);
 		model.addAttribute("direcciones", direcciones);
 
-		return "direccion";
+		return "direccionTiles";
 	}
 
 	@RequestMapping(value = "/direccion/save", method = RequestMethod.POST) // esta petición sólo obedece a peticiones POST
@@ -62,7 +62,7 @@ public class DireccionController {
 		Direccion direccion = direccionService.findById(id);
 		model.addAttribute("direccion", direccion);
 
-		return "direccion";
+		return "direccionTiles";
 	}
 
 	@RequestMapping(value = "/direccion/{idDir}/delete")

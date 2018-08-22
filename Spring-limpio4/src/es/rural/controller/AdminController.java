@@ -57,7 +57,7 @@ public class AdminController {
 		Admin admin = adminService.findById(id);
 		model.addAttribute("admin", admin);
 
-		return "admin";
+		return "adminTiles";
 	}
 
 	@RequestMapping(value = "/admin/{idAd}/delete")

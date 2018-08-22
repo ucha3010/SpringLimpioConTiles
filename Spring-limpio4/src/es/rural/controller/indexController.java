@@ -15,13 +15,13 @@ public class indexController {
 	public ModelAndView showIndex(ModelAndView model) throws Exception {
 		//model.addAttribute("resultado", "Resultado desde Session"); //agrega atributo "resultado" a la sesión
 		model.addObject("resultado", "Resultado desde Session");
-		model.setViewName("index");
+		model.setViewName("indexTiles");
 		return model;
 	}
 
 	@RequestMapping("/login")
 	public ModelAndView showLogin(ModelAndView model) throws Exception {
-		model.setViewName("login");
+		model.setViewName("loginTiles");
 		return model;		
 	}
 	
@@ -34,7 +34,7 @@ public class indexController {
 	@RequestMapping("/about")
 	public String showAbout(SessionStatus sessionStatus) throws Exception {
 		//sessionStatus.setComplete(); //elimina TODOS los atributos que están en sesión
-		return "about";
+		return "aboutTiles";
 	}
 
 	@RequestMapping("/index2")
@@ -46,7 +46,7 @@ public class indexController {
 
 	@RequestMapping("/index3")
 	public ModelAndView showIndex3(ModelAndView model) throws Exception {
-		model.setViewName("index3");
+		model.setViewName("index3Tiles");
 		return model;
 	}
 

@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 	<h1>error.jsp</h1>
 	
-	<h2>Ha ocurrido un error</h2>
+	<h2>Ha ocurrido un error 404</h2>
 	<br>
 	<c:out value="${errorLog}" />
 

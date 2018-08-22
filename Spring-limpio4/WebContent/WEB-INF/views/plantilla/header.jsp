@@ -29,3 +29,4 @@
 
 <br/><br/>
 <a href='<c:url value="/usuario"/>'>Usuarios</a><br/>
+<a href='<c:url value="/"/>'>Index</a><br/>

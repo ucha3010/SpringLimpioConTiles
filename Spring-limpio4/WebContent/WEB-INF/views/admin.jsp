@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,9 +44,9 @@
 </script>
 </head>
 <body>
-<%-- 	<c:import url="/WEB-INF/views/menu.jsp"></c:import> --%>
+	<fmt:setBundle basename="es.rural.util.messages"/>
 
-	<h1>admin.jsp</h1>
+	<h1><fmt:message key="admin.jsp" /></h1>
 	<a href='<c:url value="/"/>'>Index</a><br/>
 	<a href='<c:url value="/about"/>'>Acerca de</a><br/>
 	<br/>
@@ -56,12 +57,12 @@
 	<br/>
 	<br/>
 
-	Buscar administradores: <input type="text" id="busqueda"/>
+	<fmt:message key="buscar.administradores" /> <input type="text" id="busqueda"/>
 	<br>
 	<br>
-	Buscar administradores con AJAX: 
+	<fmt:message key="buscar.administradores.con.ajax" />
 	<input type="text" id="ajaxText" />
-	<input type="submit" id="ajaxSearch" value="Buscar as�ncronamente" />
+	<input type="submit" id="ajaxSearch" value="<fmt:message key="buscar.asincronamente" />" />
 	<div id="ajaxResult"></div>
 	<br>
 	<br>

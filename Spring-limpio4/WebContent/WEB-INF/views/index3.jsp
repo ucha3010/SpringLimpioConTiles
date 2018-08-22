@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 
 	<h1>Index3</h1>
 	

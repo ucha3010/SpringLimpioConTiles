@@ -10,6 +10,15 @@
 		<put-attribute name="footer" value="/WEB-INF/views/plantilla/footer.jsp" />
 	</definition>
 	
+	<definition name="plantillaFooter" template="/WEB-INF/views/plantilla/layoutFooter.jsp">
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/plantilla/footer.jsp" />
+	</definition>
+	
+	<definition name="indexTiles" extends="plantilla ">
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+	</definition>
+	
 	<definition name="adminTiles" extends="plantilla ">
 		<put-attribute name="body" value="/WEB-INF/views/admin.jsp" />
 	</definition>
@@ -20,6 +29,22 @@
 	
 	<definition name="aboutTiles" extends="plantilla ">
 		<put-attribute name="body" value="/WEB-INF/views/about.jsp" />
+	</definition>
+	
+	<definition name="index3Tiles" extends="plantilla ">
+		<put-attribute name="body" value="/WEB-INF/views/index3.jsp" />
+	</definition>
+	
+	<definition name="usuarioTiles" extends="plantilla ">
+		<put-attribute name="body" value="/WEB-INF/views/usuario.jsp" />
+	</definition>
+	
+	<definition name="errorTiles" extends="plantilla ">
+		<put-attribute name="body" value="/WEB-INF/views/error.jsp" />
+	</definition>
+	
+	<definition name="loginTiles" extends="plantillaFooter">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
 
 </tiles-definitions>
