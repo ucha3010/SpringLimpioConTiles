@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<jee:jndi-lookup jndi-name="jdbc/spring" id="dataSource"
+		expected-type="javax.sql.DataSource">
+	</jee:jndi-lookup>
+
+	<!-- esta línea permite el uso de anotaciones -->
+	<context:annotation-config></context:annotation-config>
+	<!-- esta escanea el paquete es.rural.dao en búsqueda de anotaciones Spring referente a la inyección de dependencias -->
+	<context:component-scan base-package="es.rural.dao"></context:component-scan> 
+
+	<!-- Hibernate - clase 41 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan" value="es.rural.pojo"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.id.new_generator_mappings">false</prop> <!-- esta línea no está indicada en la clase 41 y es necesaria -->
+				<prop key="javax.persistence.validation.group.pre-persist">es.rural.util.valid.PersistenceGroup</prop>
+				<prop key="javax.persistence.validation.group.pre-update">es.rural.util.valid.PersistenceGroup</prop>
+				<prop key="javax.persistence.validation.group.pre-remove">es.rural.util.valid.PersistenceGroup</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="exceptionTranslator"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor">
+	</bean>
+
+	<!-- conexión a la base de datos -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>
